@@ -1,22 +1,29 @@
 import streamlit as st
-from google import genai
-import os
-import json
+import google.generativeai as genai
 
+# Load the Gemini API key from Streamlit secrets
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
-client = genai.Client(api_key="API KEY")
+# Set up the Gemini model
+model = genai.GenerativeModel("gemini-pro")
 
-#input = input("What book would you like summarized")
+st.title("🧠 ModelMind")
+st.write("Find mental models based on book notes, summaries, or highlights.")
+
+# Text input from user
 user_input = st.text_area("📘 Enter your text, note, or highlight:")
 
+# Analyze button
 if st.button("🔍 Analyze"):
     if not user_input.strip():
         st.warning("Please enter some text first.")
     else:
         with st.spinner("Thinking..."):
-            response = client.models.generate_content(
-                model="gemini-2.0-flash",
-                contents=[F"Match the following text to a known mental model {user_input}"]
-            )
-            st.subheader("Here is the response")
-            st.title(response.text)
+            try:
+                response = model.generate_content(
+                    f"Match the following text to a known mental model: {user_input}"
+                )
+                st.subheader("🔎 Gemini's Response")
+                st.markdown(response.text)
+            except Exception as e:
+                st.error(f"Something went wrong: {e}")
