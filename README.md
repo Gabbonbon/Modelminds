@@ -1,5 +1,5 @@
 # Purpose
-the goal of this concept project was to create a program that show's *biases* and where *mental models* can be used using Gemini. 
+ - the goal of this concept project was to create a program that show's biases and where mental models can be used using Gemini. 
 ---
 # How Its Done
  - Using streamlit for the UI, and python as the backend, you can create this program pretty easily with just an API key
@@ -10,5 +10,5 @@ the goal of this concept project was to create a program that show's *biases* an
      - This could be edited to fit many needs, this is just the one I chose.
 ---
 # How I learned to do this
-Streamlit docs: [docs.streamlit.io]
+Streamlit docs: [https://docs.streamlit.io]
 Python docs: [https://docs.python.org/3/]
