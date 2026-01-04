@@ -5,7 +5,7 @@ import google.generativeai as genai
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 # Create the model (this one works for generate_content)
-model = genai.GenerativeModel(model_name="gemini-1.5-flash")  # or gemini-1.5-pro
+model = genai.GenerativeModel(model_name="gemini-2.5-flash")  # or gemini-2.5-pro
 
 # Streamlit UI
 st.title("🧠 ModelMind")
